@@ -2,7 +2,7 @@
 
 The goal of this module is to implement the algorithm for
 effective computation of Maass cusp forms to some precision as
-presented in [Booker, Strombergsson, and Venkatesh](https://www.math.ias.edu/~akshay/research/bsv.pdf).
+presented in [Booker, Strömbergsson, and Venkatesh](https://www.math.ias.edu/~akshay/research/bsv.pdf).
 
 The actual goal of this module is to get me familiar with golang.
 
