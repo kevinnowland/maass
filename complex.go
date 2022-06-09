@@ -5,7 +5,7 @@
 // this is just an exercise for myself
 //
 
-package complex
+package maass
 
 import (
 	"math/big"

@@ -4,7 +4,7 @@
 // thinking enough about the precision of all these calculations
 //
 
-package complex
+package maass
 
 import (
 	"math/big"
