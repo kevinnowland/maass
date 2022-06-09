@@ -32,7 +32,7 @@ func TestAdd(t *testing.T) {
 	want := NewComplex(5, 3)
 
 	if !reflect.DeepEqual(got, want) {
-		t.Errorf("got Complex{%v, %v} wanted Complex{%v, %v}", got.re, got.im, want.re, want.im)
+		t.Errorf("got Complex{%v, %v} wanted Complex{%v, %v}", got.Re, got.Im, want.Re, want.Im)
 	}
 }
 
@@ -44,7 +44,7 @@ func TestSub(t *testing.T) {
 	want := NewComplex(-3, -7)
 
 	if !reflect.DeepEqual(got, want) {
-		t.Errorf("got Complex{%v, %v} wanted Complex{%v, %v}", got.re, got.im, want.re, want.im)
+		t.Errorf("got Complex{%v, %v} wanted Complex{%v, %v}", got.Re, got.Im, want.Re, want.Im)
 	}
 }
 
@@ -56,7 +56,7 @@ func TestMul(t *testing.T) {
 	want := NewComplex(14, -3)
 
 	if !reflect.DeepEqual(got, want) {
-		t.Errorf("got Complex{%v, %v} wanted Complex{%v, %v}", got.re, got.im, want.re, want.im)
+		t.Errorf("got Complex{%v, %v} wanted Complex{%v, %v}", got.Re, got.Im, want.Re, want.Im)
 	}
 }
 
@@ -67,7 +67,7 @@ func TestConj(t *testing.T) {
 	want := NewComplex(1, 2)
 
 	if !reflect.DeepEqual(got, want) {
-		t.Errorf("got Complex{%v, %v} wanted Complex{%v, %v}", got.re, got.im, want.re, want.im)
+		t.Errorf("got Complex{%v, %v} wanted Complex{%v, %v}", got.Re, got.Im, want.Re, want.Im)
 	}
 }
 
@@ -78,7 +78,7 @@ func TestAbs(t *testing.T) {
 	want := NewComplex(5, 0)
 
 	if !reflect.DeepEqual(got, want) {
-		t.Errorf("got Complex{%v, %v} wanted Complex{%v, %v}", got.re, got.im, want.re, want.im)
+		t.Errorf("got Complex{%v, %v} wanted Complex{%v, %v}", got.Re, got.Im, want.Re, want.Im)
 	}
 }
 
@@ -89,14 +89,14 @@ func TestInv(t *testing.T) {
 	want := NewComplex(0.6, 0.8)
 
 	// cheating with precision?
-	got.re.SetPrec(5)
-	got.im.SetPrec(5)
+	got.Re.SetPrec(5)
+	got.Im.SetPrec(5)
 
-	want.re.SetPrec(5)
-	want.im.SetPrec(5)
+	want.Re.SetPrec(5)
+	want.Im.SetPrec(5)
 
-	if !reflect.DeepEqual(want.re, got.re) || !reflect.DeepEqual(want.im, got.im) {
-		t.Errorf("got Complex{%v, %v} wanted Complex{%v, %v}", got.re, got.im, want.re, want.im)
+	if !reflect.DeepEqual(want.Re, got.Re) || !reflect.DeepEqual(want.Im, got.Im) {
+		t.Errorf("got Complex{%v, %v} wanted Complex{%v, %v}", got.Re, got.Im, want.Re, want.Im)
 	}
 }
 
@@ -108,14 +108,14 @@ func TestQuo(t *testing.T) {
 	want := NewComplex(-2.2, 0.4)
 
 	// cheating with precision?
-	got.re.SetPrec(5)
-	got.im.SetPrec(5)
+	got.Re.SetPrec(5)
+	got.Im.SetPrec(5)
 
-	want.re.SetPrec(5)
-	want.im.SetPrec(5)
+	want.Re.SetPrec(5)
+	want.Im.SetPrec(5)
 
-	if !reflect.DeepEqual(want.re, got.re) || !reflect.DeepEqual(want.im, got.im) {
-		t.Errorf("got Complex{%v, %v} wanted Complex{%v, %v}", got.re, got.im, want.re, want.im)
+	if !reflect.DeepEqual(want.Re, got.Re) || !reflect.DeepEqual(want.Im, got.Im) {
+		t.Errorf("got Complex{%v, %v} wanted Complex{%v, %v}", got.Re, got.Im, want.Re, want.Im)
 	}
 }
 
@@ -123,8 +123,8 @@ func TestNeg(t *testing.T) {
 	got := NewComplex(0, 0).Neg(NewComplex(1, -2))
 	want := NewComplex(-1, 2)
 
-	if !reflect.DeepEqual(want.re, got.re) || !reflect.DeepEqual(want.im, got.im) {
-		t.Errorf("got Complex{%v, %v} wanted Complex{%v, %v}", got.re, got.im, want.re, want.im)
+	if !reflect.DeepEqual(want.Re, got.Re) || !reflect.DeepEqual(want.Im, got.Im) {
+		t.Errorf("got Complex{%v, %v} wanted Complex{%v, %v}", got.Re, got.Im, want.Re, want.Im)
 	}
 }
 

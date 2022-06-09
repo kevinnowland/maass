@@ -13,69 +13,69 @@ import (
 
 // the type that we really care about
 type Complex struct {
-	re *big.Float
-	im *big.Float
+	Re *big.Float
+	Im *big.Float
 }
 
 // get a new complex number
 // as with NewFloat this will default to precision 53
 func NewComplex(a, b float64) *Complex {
-	return &Complex{re: big.NewFloat(a), im: big.NewFloat(b)}
+	return &Complex{Re: big.NewFloat(a), Im: big.NewFloat(b)}
 }
 
 // get the minimum precision between real and imaginary parts
 func (z *Complex) Prec() uint {
-	if z.re.Prec() < z.im.Prec() {
-		return z.re.Prec()
+	if z.Re.Prec() < z.Im.Prec() {
+		return z.Re.Prec()
 	} else {
-		return z.im.Prec()
+		return z.Im.Prec()
 	}
 }
 
 // set z to a + b and return z
 func (z *Complex) Add(a, b *Complex) *Complex {
-	z.re.Add(a.re, b.re)
-	z.im.Add(a.im, b.im)
+	z.Re.Add(a.Re, b.Re)
+	z.Im.Add(a.Im, b.Im)
 	return z
 }
 
 // set z to a - b and return z
 func (z *Complex) Sub(a, b *Complex) *Complex {
-	z.re.Sub(a.re, b.re)
-	z.im.Sub(a.im, b.im)
+	z.Re.Sub(a.Re, b.Re)
+	z.Im.Sub(a.Im, b.Im)
 	return z
 }
 
 // set z to a*b and return z
 func (z *Complex) Mul(a, b *Complex) *Complex {
-	z.re.Sub(big.NewFloat(0).Mul(a.re, b.re), big.NewFloat(0).Mul(a.im, b.im))
-	z.im.Add(big.NewFloat(0).Mul(a.re, b.im), big.NewFloat(0).Mul(a.im, b.re))
+	z.Re.Sub(big.NewFloat(0).Mul(a.Re, b.Re), big.NewFloat(0).Mul(a.Im, b.Im))
+	z.Im.Add(big.NewFloat(0).Mul(a.Re, b.Im), big.NewFloat(0).Mul(a.Im, b.Re))
 	return z
 }
 
 // set z = u + iv to u - iv
 func (z *Complex) Conj() *Complex {
-	z.re.Add(big.NewFloat(0), z.re)
-	z.im.Sub(big.NewFloat(0), z.im)
+	z.Re.Add(big.NewFloat(0), z.Re)
+	z.Im.Sub(big.NewFloat(0), z.Im)
 	return z
 }
 
 // calculate |z| and return as *Complex
 func (z *Complex) Abs() *Complex {
-	realSquared := big.NewFloat(0).Mul(z.re, z.re)
-	imSquared := big.NewFloat(0).Mul(z.im, z.im)
+	realSquared := big.NewFloat(0).Mul(z.Re, z.Re)
+	imSquared := big.NewFloat(0).Mul(z.Im, z.Im)
 	realAbsSquared := big.NewFloat(0).Add(realSquared, imSquared)
 	realAbs := big.NewFloat(0).Sqrt(realAbsSquared)
-	abs := Complex{re: realAbs, im: big.NewFloat(0)}
+	abs := Complex{Re: realAbs, Im: big.NewFloat(0)}
 	return &abs
 }
 
 // set z to 1 / z and return z
 func (z *Complex) Inv() *Complex {
-	invertedAbs := big.NewFloat(0).Quo(big.NewFloat(1), z.Abs().re)
+	invertedAbs := big.NewFloat(0).Quo(big.NewFloat(1), z.Abs().Re)
 	z = z.Conj()
-	z.re.Mul(z.re, invertedAbs)
-	z.im.Mul(z.im, invertedAbs)
+	z.Re.Mul(z.Re, invertedAbs)
+	z.Im.Mul(z.Im, invertedAbs)
 	return z
 }
 
@@ -86,14 +86,14 @@ func (z *Complex) Quo(a, b *Complex) *Complex {
 
 // set z to -w and return z
 func (z *Complex) Neg(w *Complex) *Complex {
-	z.re.Neg(w.re)
-	z.im.Neg(w.im)
+	z.Re.Neg(w.Re)
+	z.Im.Neg(w.Im)
 	return z
 }
 
 // convert to complex128
 func (z *Complex) Complex128() (complex128, big.Accuracy, big.Accuracy) {
-	re, re_acc := z.re.Float64()
-	im, im_acc := z.im.Float64()
+	re, re_acc := z.Re.Float64()
+	im, im_acc := z.Im.Float64()
 	return complex(re, im), re_acc, im_acc
 }
