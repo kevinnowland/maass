@@ -93,7 +93,7 @@ func (z *Complex) Neg(w *Complex) *Complex {
 
 // convert to complex128
 func (z *Complex) Complex128() (complex128, big.Accuracy, big.Accuracy) {
-    re, re_acc := z.re.Float64()
-    im, im_acc := z.im.Float64()
-    return complex(re, im), re_acc, im_acc
+	re, re_acc := z.re.Float64()
+	im, im_acc := z.im.Float64()
+	return complex(re, im), re_acc, im_acc
 }

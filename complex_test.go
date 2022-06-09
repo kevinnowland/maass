@@ -129,10 +129,10 @@ func TestNeg(t *testing.T) {
 }
 
 func TestComplex(t *testing.T) {
-    got, _, _ := NewComplex(0.5, -1.4).Complex128()
-    want := complex(0.5, -1.4)
+	got, _, _ := NewComplex(0.5, -1.4).Complex128()
+	want := complex(0.5, -1.4)
 
-    if got != want {
+	if got != want {
 		t.Errorf("got %v, wanted %v", got, want)
-    }
+	}
 }
