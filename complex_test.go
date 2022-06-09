@@ -127,3 +127,12 @@ func TestNeg(t *testing.T) {
 		t.Errorf("got Complex{%v, %v} wanted Complex{%v, %v}", got.re, got.im, want.re, want.im)
 	}
 }
+
+func TestComplex(t *testing.T) {
+    got, _, _ := NewComplex(0.5, -1.4).Complex128()
+    want := complex(0.5, -1.4)
+
+    if got != want {
+		t.Errorf("got %v, wanted %v", got, want)
+    }
+}
